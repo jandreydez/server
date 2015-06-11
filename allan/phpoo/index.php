@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);
-ini_set('desplay', 1);
+ini_set('display', 1);
 
 class JsonDB {
 
