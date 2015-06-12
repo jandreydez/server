@@ -32,7 +32,7 @@ class JsonDB {
 $db = new JsonDB('db.txt');
 //$db->add('3', ['name' => 'Allan Ferreira', 'email' => 'allan.less@outlook.com', 'senha' => 'UGgjhg¨hJKLGguopuyY']);
 //$db->save();
-
+//http://gustavopaes.net/blog/2010/php-como-ler-e-escrever-dados-no-formato-json.html
 ?>
 
 <!DOCTYPE html>
