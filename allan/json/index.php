@@ -32,6 +32,7 @@ class JsonDB {
 $db = new JsonDB('db.txt');
 //$db->add('3', ['name' => 'Allan Ferreira', 'email' => 'allan.less@outlook.com', 'senha' => 'UGgjhg¨hJKLGguopuyY']);
 //$db->save();
+
 ?>
 
 <!DOCTYPE html>
