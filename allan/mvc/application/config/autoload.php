@@ -139,5 +139,5 @@ $autoload['language'] = array();
 
 $autoload['model'] = array();
 
-
+//assets
 $autoload['helper'] = array('form', 'url', 'utility');
