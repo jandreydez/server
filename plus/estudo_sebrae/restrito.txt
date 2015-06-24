@@ -1,0 +1,11 @@
+/plusmanage
+
+
+
+
+You MUST edit /wp-config.php to make new admin path work: 
+Open wp-config.php using FTP and add following line somewhere before require_once(...) (or update it with new value): 
+define("ADMIN_COOKIE_PATH", "/estudo_sebrae/wwwroot/plusmanage");
+
+You also need to update your .htaccess file by adding following line before 'RewriteCond REQUEST_FILENAME} !-f': 
+RewriteRule ^plusmanage/(.*) /wp-admin/$1 [QSA,L] 
