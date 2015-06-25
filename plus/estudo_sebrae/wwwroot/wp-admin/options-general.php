@@ -113,6 +113,7 @@ include( ABSPATH . 'wp-admin/admin-header.php' );
 
 <form method="post" action="options.php" novalidate="novalidate">
 <?php settings_fields('general'); ?>
+
 <table class="form-table">
 <tr>
 <th scope="row"><label for="blogname"><?php _e('Site Title') ?></label></th>

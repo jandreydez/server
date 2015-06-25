@@ -2,20 +2,11 @@
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteBase /estudo_sebrae/wwwroot/
+RewriteBase /server/plus/estudo_sebrae/wwwroot/
 RewriteRule ^index\.php$ - [L]
-RewriteRule ^lib/(.*) /estudo_sebrae/wwwroot/wp-includes/$1 [QSA,L]
-RewriteRule ^plusmanage1/(.*) /estudo_sebrae/wwwroot/wp-admin/$1 [QSA,L]
-RewriteRule ^file/(.*) /estudo_sebrae/wwwroot/wp-content/uploads/$1 [QSA,L]
-RewriteRule ^modules/(.*) /estudo_sebrae/wwwroot/wp-content/plugins/$1 [QSA,L]
-RewriteRule ^template/main\.css /estudo_sebrae/wwwroot//index.php?style_wrapper=1 [QSA,L]
-RewriteRule ^template/(.*) /estudo_sebrae/wwwroot/wp-content/themes/sebraeprev/$1 [QSA,L]
-RewriteRule ^ajax /estudo_sebrae/wwwroot/wp-admin/admin-ajax.php [QSA,L]
-RewriteRule ^wp-content/themes/sebraeprev/screenshot\.png|readme\.html|license\.txt|wp-content/debug\.log|wp-includes/$ /estudo_sebrae/wwwroot/nothing_404_404 [QSA,L]
-RewriteRule ^(((wp-content|wp-includes)/([A-Za-z0-9-_/]*))|(wp-admin/(?!network/)([A-Za-z0-9-_/]+)))(\.txt|/)$ /estudo_sebrae/wwwroot/nothing_404_404 [QSA,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /estudo_sebrae/wwwroot/index.php [L]
+RewriteRule . /server/plus/estudo_sebrae/wwwroot/index.php [L]
 </IfModule>
 
 # END WordPress

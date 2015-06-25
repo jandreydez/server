@@ -109,6 +109,7 @@ function _wp_menu_output( $menu, $submenu, $submenu_as_parent = true ) {
 		$arrow = '<div class="wp-menu-arrow"><div></div></div>';
 
 		$title = wptexturize( $item[0] );
+
 		// hide separators from screen readers
 		if ( $is_separator ) {
 			$aria_hidden = ' aria-hidden="true"';
@@ -224,6 +225,7 @@ function _wp_menu_output( $menu, $submenu, $submenu_as_parent = true ) {
 <div id="adminmenuback"></div>
 <div id="adminmenuwrap">
 <ul id="adminmenu">
+
 <?php
 
 _wp_menu_output( $menu, $submenu );

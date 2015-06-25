@@ -16,7 +16,7 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'data_estudo');
+define('DB_NAME', 'estudo_server_sebrae');
 
 /** MySQL database username */
 define('DB_USER', 'root');
@@ -42,14 +42,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'g%¨D#+F&%9+sfj278___h´(D*;´7[+/´]__´[~~+8@#$+(@))$=_()DG@85&¨~];´]%');
-define('SECURE_AUTH_KEY',  'g%¨D#+F&%9+sfj278___h´(D*;´7[+/´]__´[~~+8@#$+(@))$=_()DG@85&¨~];´]%');
-define('LOGGED_IN_KEY',    'g%¨D#+F&%9+sfj278___h´(D*;´7[+/´]__´[~~+8@#$+(@))$=_()DG@85&¨~];´]%');
-define('NONCE_KEY',        'g%¨D#+F&%9+sfj278___h´(D*;´7[+/´]__´[~~+8@#$+(@))$=_()DG@85&¨~];´]%');
-define('AUTH_SALT',        'g%¨D#+F&%9+sfj278___h´(D*;´7[+/´]__´[~~+8@#$+(@))$=_()DG@85&¨~];´]%');
-define('SECURE_AUTH_SALT', 'g%¨D#+F&%9+sfj278___h´(D*;´7[+/´]__´[~~+8@#$+(@))$=_()DG@85&¨~];´]%');
-define('LOGGED_IN_SALT',   'g%¨D#+F&%9+sfj278___h´(D*;´7[+/´]__´[~~+8@#$+(@))$=_()DG@85&¨~];´]%');
-define('NONCE_SALT',       'g%¨D#+F&%9+sfj278___h´(D*;´7[+/´]__´[~~+8@#$+(@))$=_()DG@85&¨~];´]%');
+define('AUTH_KEY',         '83389j234&%¨#@$@#%&%¨YEFVDR#&TY#RT$TKKHGEWRRYRU_)_)_12@!@#%$$%FDD');
+define('SECURE_AUTH_KEY',  '83389j234&%¨#@$@#%&%¨YEFVDR#&TY#RT$TKKHGEWRRYRU_)_)_12@!@#%$$%FDD');
+define('LOGGED_IN_KEY',    '83389j234&%¨#@$@#%&%¨YEFVDR#&TY#RT$TKKHGEWRRYRU_)_)_12@!@#%$$%FDD');
+define('NONCE_KEY',        '83389j234&%¨#@$@#%&%¨YEFVDR#&TY#RT$TKKHGEWRRYRU_)_)_12@!@#%$$%FDD');
+define('AUTH_SALT',        '83389j234&%¨#@$@#%&%¨YEFVDR#&TY#RT$TKKHGEWRRYRU_)_)_12@!@#%$$%FDD');
+define('SECURE_AUTH_SALT', '83389j234&%¨#@$@#%&%¨YEFVDR#&TY#RT$TKKHGEWRRYRU_)_)_12@!@#%$$%FDD');
+define('LOGGED_IN_SALT',   '83389j234&%¨#@$@#%&%¨YEFVDR#&TY#RT$TKKHGEWRRYRU_)_)_12@!@#%$$%FDD');
+define('NONCE_SALT',       '83389j234&%¨#@$@#%&%¨YEFVDR#&TY#RT$TKKHGEWRRYRU_)_)_12@!@#%$$%FDD');
 
 /**#@-*/
 
@@ -76,7 +76,5 @@ define('WP_DEBUG', false);
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
 
-
-define("ADMIN_COOKIE_PATH", "/estudo_sebrae/wwwroot/plusmanage1");
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
