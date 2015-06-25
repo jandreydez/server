@@ -1,6 +1,4 @@
 <?php get_header('single');?>
-
-
 </div>		<div id="sliders-container">
 						</div>
 						 

@@ -94,115 +94,6 @@ function toolbar_link_to_mypage( $wp_admin_bar ) {
 	$wp_admin_bar->add_node( $args );
 }
 
-function my_login_logo() { ?>
-	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-	<script type="text/javascript">
-		$(function(){
-			var img ="<?php echo bloginfo('template_url'); ?>/images/panel/logo.png";
-			$('body').prepend('<div class="bar"><a target="_blank" href="http://plusinterativa.com"><img class="assinatura" src="'+img+'"/></a></div>');
-			$('body').append('<div class="copy">copyright &copy; <a target="_blank" href="http://plusinterativa.com">Plus Interativa</a></div>');
-		});
-	</script>
-	<link href='<?php echo bloginfo('template_url'); ?>/css/panel.css' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,300,600' rel='stylesheet' type='text/css'>
-    <style type="text/css">
-	    .copy{
-	    	position: absolute;
-			bottom: 15px;
-			text-align: center;
-			display: inline-block;
-			width: 100%;
-			color: #fff;
-	    }
-	    .copy a{
-	    	color: #fff;
-	    }
-	    .copy a:hover{
-	    	text-decoration: none;
-	    }
-    	.bar{
-    		height: 51px;
-		  	background: #fff;
-		  	border-bottom: 1px solid #EEE;
-    	}
-    	.assinatura{
-		  	width: 110px;
-		  	height: auto;
-		  	margin: 0 auto;
-		  	display: block;
-		  	padding-top: 6px;
-    	}
-		.login form{
-			box-shadow:none;
-			-webkit-box-shadow:none;
-			-moz-box-shadow:none;
-		}
-		body{
-			/*background:#fff;*/
-			background: url(<?php echo bloginfo('template_url'); ?>/images/panel/4.jpg) no-repeat center center fixed; 
-			background: #046da1; /* Old browsers */
-			background: -moz-linear-gradient(top,  #046da1 0%, #008CD8 100%); /* FF3.6+ */
-			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#046da1), color-stop(100%,#008CD8)); /* Chrome,Safari4+ */
-			background: -webkit-linear-gradient(top,  #046da1 0%,#008CD8 100%); /* Chrome10+,Safari5.1+ */
-			background: -o-linear-gradient(top,  #046da1 0%,#008CD8 100%); /* Opera 11.10+ */
-			background: -ms-linear-gradient(top,  #046da1 0%,#008CD8 100%); /* IE10+ */
-			background: linear-gradient(to bottom,  #046da1 0%,#008CD8 100%); /* W3C */
-			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#046da1', endColorstr='#008CD8',GradientType=0 ); /* IE6-9 */
-		  	font-family: 'Open Sans', sans-serif;
-		  	-webkit-background-size: cover;
-		  	-moz-background-size: cover;
-		  	-o-background-size: cover;
-		  	background-size: cover;
-		}
-		.login h1 a {
-            background-image: url(<?php echo bloginfo('template_url'); ?>/images/panel/sebraeprev-icon.png) !important;
-            /*padding-bottom: 30px;*/
-        }
-		.login label{
-			color: #fff;
-			cursor: default;
-			font-weight: 100;
-			text-transform: uppercase;
-		}
-		.login label[FOR=rememberme]{
-			text-transform: none;
-		}
-		.login label[FOR=rememberme] input{
-			background:#004E74;
-			border:none;
-			outline: none;
-		}
-		#loginform{
-			background: transparent;
-		}
-		#loginform input[type=text],
-		#loginform input[type=password]{
-			background:#004E74;
-			border:0;
-			color: #fff;
-			outline: none;
-			font-weight: 800;
-  			padding: 4px 10px;
-		}
-		#loginform input[type=submit]{
-			opacity: 1;
-		}
-		#nav,#backtoblog{display: none;}
-		.wp-core-ui .button-primary {
-			background: #F0A514;
-			border-color: #D79516;
-		}
-		input[type=checkbox]:focus, input[type=color]:focus, input[type=date]:focus, input[type=datetime-local]:focus, input[type=datetime]:focus, input[type=email]:focus, input[type=month]:focus, input[type=number]:focus, input[type=password]:focus, input[type=radio]:focus, input[type=search]:focus, input[type=tel]:focus, input[type=text]:focus, input[type=time]:focus, input[type=url]:focus, input[type=week]:focus, select:focus, textarea:focus{
-			box-shadow: none;
-			-webkit-box-shadow: none;
-			-moz-box-shadow: none;
-			/*border-color: #D79516;*/
-		}
-    </style>
-<?php }
-add_action( 'login_enqueue_scripts', 'my_login_logo' );
 
 // Adiciona tipos de Posts
 	add_action( 'init', 'create_post_type' );
@@ -211,7 +102,7 @@ add_action( 'login_enqueue_scripts', 'my_login_logo' );
 		register_post_type( 'noticias',
 			array(
 				'labels' => array(
-					'name' => __( 'Notícias' ),
+					'name' => __( 'Notícia' ),
 					'singular_name' => __( 'noticias' )
 				),
 			'public' => true,

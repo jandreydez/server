@@ -170,7 +170,7 @@
         <div class="portfolio" style="width:1010px;">
             <div class="slide">
                 <?php
-                $args = array( 'posts_per_page' => '4', 'category_type' => 'noticias');
+                $args = array( 'posts_per_page' => '4', 'post_type' => 'noticias');
                 $loop = new WP_Query( $args );
                 while ( $loop->have_posts() ) : $loop->the_post();  
                 $count = 1;
@@ -203,7 +203,7 @@
                             
             <ul class="nav_noticias">
                 <?php
-                $args = array( 'posts_per_page' => '4', 'category_type' => 'noticias');
+                $args = array( 'posts_per_page' => '4', 'post_type' => 'noticias');
                 $loop = new WP_Query( $args );
                 while ( $loop->have_posts() ) : $loop->the_post();  
                 $count = 1;
@@ -220,7 +220,7 @@
                 endwhile;
                 ?>
                 <h4>
-                    <a href="<?php echo home_url();?>/noticias/">&gt;&gt; Acessar todas as notícias</a>
+                    <a href="<?php echo home_url();?>/noticias-todas/"> >> Acessar todas as notícias</a>
                 </h4>
             </ul>            
             <div style="clear:both;"></div>

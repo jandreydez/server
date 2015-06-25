@@ -21,7 +21,7 @@
 	
 	
 	
-	<link rel="stylesheet" href="http://sebraeprevidencia.com.br/wp-content/themes/Avada/style.css" />
+	<link rel="stylesheet" href="<?php bloginfo('template_url');?>/style.css" />
 	
 	<!--[if IE]>
 	<script type="text/javascript" src="http://sebraeprevidencia.com.br/wp-content/themes/Avada/js/respond.min.js"></script>

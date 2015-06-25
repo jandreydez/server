@@ -20,7 +20,7 @@ body {
 	font:13px/20px 'PTSansRegular', Arial, Helvetica, sans-serif;
 	background:#fff;
 }
-img{
+img{	
 	border-style:none;
 	vertical-align:top;
 	max-width:100%;
@@ -3184,3 +3184,8 @@ table{
 .top-menu .dd-container{text-align:left !important;font-size:12px !important;}
 #wrapper .dd-selected{font-weight:normal !important;}
 #wrapper .dd-options li:first-child{display:none !important;}
+
+/*////////////////////////////////////////////////////*/
+.bd-bottom{
+	border-bottom: 1px solid #ccc;	
+}
