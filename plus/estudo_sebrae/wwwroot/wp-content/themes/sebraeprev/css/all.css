@@ -3189,3 +3189,9 @@ table{
 .bd-bottom{
 	border-bottom: 1px solid #ccc;	
 }
+.btn-prev,.btn-next{display: inline-block;}
+.page-numbers.current{ 	
+	  padding: 2px;
+	  background-color: rgb(74, 126, 187);
+	  color: #fff !important;
+ }

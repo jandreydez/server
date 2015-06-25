@@ -134,6 +134,17 @@ function toolbar_link_to_mypage( $wp_admin_bar ) {
 			'taxonomies' => array('category', 'post_tag') 
 			)
 		);
+		register_post_type( 'videos',
+			array(
+				'labels' => array(
+					'name' => __( 'Vídeos' ),
+					'singular_name' => __( 'videos' )
+				),
+			'public' => true,
+			'has_archive' => true,
+			'taxonomies' => array('category', 'post_tag') 
+			)
+		);
 	}
 
 // Adiona thumbs nos tipos de Posts
@@ -145,6 +156,8 @@ function toolbar_link_to_mypage( $wp_admin_bar ) {
 		add_post_type_support( 'formularios', 'custom-fields'  );
 		add_post_type_support( 'fotos', 'thumbnail' );
 		add_post_type_support( 'fotos', 'custom-fields'  );
+		add_post_type_support( 'videos', 'thumbnail'  );
+		add_post_type_support( 'videos', 'custom-fields'  );
 	}
 
 

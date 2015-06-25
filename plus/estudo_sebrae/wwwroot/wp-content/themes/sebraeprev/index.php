@@ -139,6 +139,7 @@
         .aba-eleicoes{ width:120px; background:#bababa; color:#5d5d5d; display:block; margin:0 3px; border-top-right-radius: 5px !important; border-top-left-radius: 5px !important; text-align:center; float:left; height:39px; line-height:39px;}
         .aba-eleicoes:hover{ color:#ffffff !important;}
         </style>
+
         <div id="tabs-1" class="tab-holder shortcode-tabs clearfix tabs-horizontal">
             <div class="tab-hold tabs-wrapper">
                 <ul id="tabs" class="tabset tabs">
@@ -147,6 +148,7 @@
                     <li><a href="#tab3">Formulários</a></li>
                     <li><a href="#tab4">Fotos</a></li>
                     <li><a href="#tab5">Vídeos</a></li>
+                    <li><a href="#tab6">Faça sua Adesão</a></li>
                 </ul>
                 <div class="tab-box tabs-container">
     <p>&nbsp;</p>
@@ -415,118 +417,56 @@
             </div>
         </div>
     </div>
+
     <div id="tab5" class="tab tab_content">
-    <div class="accordian">
-    <p>&nbsp;</p>
-    <h5 class="toggle "><a href="#"><span class="arrow"></span>Institucionais</a></h5><div class="toggle-content " style="">
-    <div class="one_half last">
-    <p><a href="http://sebraeprevidencia.com.br/video-institucional-sebrae-previdencia/" ><img class="size-thumbnail wp-image-4686 alignnone" title="Vídeo Institucional SEBRAE PREVIDENCIA" alt="mqdefault 1 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/07/mqdefault_1.jpg" width="300" /></a></p>
-    <p>Vídeo Institucional SEBRAE PREVIDENCIA</p>
+        <?php   wp_reset_query();
+                $args = array( 'posts_per_page' => '-1', 'post_type' => 'videos');
+                $loop = new WP_Query( $args );
+
+                while ( $loop->have_posts() ) : $loop->the_post();  
+            ?>
+            <?php $GLOBALS['category'] = get_the_category();?>  
+                
+            <?php print_r( $category); endwhile;
+           
+
+            ?>
+
+        <div class="accordian">
+            <p>&nbsp;</p>
+            <!--Fudeo -->
+            <?php 
+            foreach ($category as $cat) :
+            $catname = $cat->name;
+            
+            ?>
+                    
+            <h5 class="toggle">
+                <a href="#">
+                    <span class="arrow"></span>                    
+                       <?php  echo $catname;?> 
+                </a>
+            </h5>                      
+            <div class="toggle-content " style="">
+            <?php
+                $args = array( 'posts_per_page' => '-1', 'post_type' => 'videos', 'category_name'=>$catname);
+                $loop = new WP_Query( $args );
+                while ( $loop->have_posts() ) : $loop->the_post();  
+            ?>
+                <div class="one_half">
+                    <p>
+                        <a href="http://sebraeprevidencia.com.br/video-institucional-sebrae-previdencia/" >
+                            <img class="size-thumbnail wp-image-4686 alignnone" title="Vídeo Institucional SEBRAE PREVIDENCIA" alt="mqdefault 1 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/07/mqdefault_1.jpg" width="300" />
+                        </a>
+                    </p>
+                    <p><?php the_title();?></p>
+                </div>                
+            <?php endwhile;?>
+            </div>
+        <?php endforeach;?>
+        </div>
     </div>
-    <div class="one_half">
-    <p><a href="http://sebraeprevidencia.com.br/novo-portal-do-sebrae-previdencia/" ><img class="size-large wp-image-4687 alignnone" title="Novo portal do SEBRAE PREVIDÊNCIA" alt="mqdefault 2 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/07/mqdefault_2.jpg" width="300" /></a></p>
-    <p>Novo portal do SEBRAE PREVIDÊNCIA</p>
-    </div>
-    <div class="one_half last">
-    <p><a href="http://sebraeprevidencia.com.br/emprestimos-entenda-as-modalidades-oferecidas-pelo-sebrae-previdencia/" ><img class="size-thumbnail wp-image-5895 alignnone" title="Empréstimos: entenda as modalidades oferecidas pelo SEBRAE PREVIDÊNCIA" alt="mqdefault 1 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2014/10/print.png" width="300" /></a></p>
-    <p>Empréstimos: entenda as modalidades oferecidas pelo SEBRAE PREVIDÊNCIA</p>
-    </div>
-    <div class="clear"></div>
-    </div>
-    <h5 class="toggle "><a href="#"><span class="arrow"></span>Perfis de Investimentos</a></h5><div class="toggle-content " style="">
-    <div class="one_half">
-    <p><a href="http://sebraeprevidencia.com.br/perfis-de-investimentos-do-plano-sebraeprev/" ><img class="alignnone size-full wp-image-4698" title="Perfis de Investimentos do Plano SEBRAEPREV" alt="mqdefault 3 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/07/mqdefault_3.jpg" width="300" /></a></p>
-    <p>Perfis de Investimentos do Plano SEBRAEPREV</p>
-    </div>
-    <div class="one_half last">
-    <p><a href="http://sebraeprevidencia.com.br/perfis-de-investimentos-introducao/" ><img class="size-large wp-image-4687 alignnone" title="Perfis de Investimentos – Introdução" alt="mqdefault 6 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/07/mqdefault_6.jpg" width="300" /></a></p>
-    <p>Perfis de Investimentos – Introdução</p>
-    </div>
-    <div class="one_half">
-    <p><a href="http://sebraeprevidencia.com.br/perfis-de-investimentos-conservador/" ><img class="alignnone size-full wp-image-4698" title="Perfis de Investimentos – Conservador" alt="mqdefault 7 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/07/mqdefault_7.jpg" width="300" /></a></p>
-    <p>Perfis de Investimentos – Conservador</p>
-    </div>
-    <div class="one_half last">
-    <p><a href="http://sebraeprevidencia.com.br/perfis-de-investimentos-sebraeprev-moderado/" ><img class="size-large wp-image-4687 alignnone" title="Perfis de Investimentos – SEBRAEPREV (Moderado)" alt="mqdefault 8 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/07/mqdefault_8.jpg" width="300" /></a></p>
-    <p>Perfis de Investimentos – SEBRAEPREV (Moderado)</p>
-    </div>
-    <div class="one_half">
-    <p><a href="http://sebraeprevidencia.com.br/perfis-de-investimentos-arrojado/" ><img class="alignnone size-full wp-image-4698" title="Perfis de Investimentos – Arrojado" alt="mqdefault 9 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/07/mqdefault_9.jpg" width="300" /></a></p>
-    <p>Perfis de Investimentos – Arrojado</p>
-    </div>
-    <div class="clear"></div>
-    </div>
-    <h5 class="toggle "><a href="#"><span class="arrow"></span>PLANEJAR</a></h5><div class="toggle-content " style="">
-    <div class="one_half">
-    <p><a href="http://sebraeprevidencia.com.br/planejar-teaser/" ><img class="alignnone size-full wp-image-4712" title="PLANEJAR – teaser" alt="mqdefault 10 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/07/mqdefault_10.jpg" width="300" /></a></p>
-    <p>PLANEJAR – teaser</p>
-    </div>
-    <div class="one_half last">
-    <p><a href="http://sebraeprevidencia.com.br/planejar-video/" ><img class="size-large wp-image-4687 alignnone" title="PLANEJAR" alt="mqdefault 11 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/07/mqdefault_11.jpg" width="300" /></a></p>
-    <p>PLANEJAR</p>
-    </div>
-    <div class="one_half">
-    <p><a href="http://sebraeprevidencia.com.br/conselheira-do-sebrae-previdencia-fala-sobre-o-planejar/" ><img class="alignnone size-full wp-image-4712" title="Conselheira do SEBRAE PREVIDÊNCIA fala sobre o PLANEJAR" alt="mqdefault 4 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/07/mqdefault_4.jpg" width="300" /></a></p>
-    <p>Conselheira do SEBRAE PREVIDÊNCIA fala sobre o PLANEJAR</p>
-    </div>
-    <div class="one_half last">
-    <p><a href="http://sebraeprevidencia.com.br/gestora-do-plano-sebraeprev-fala-sobre-a-importancia-do-programa-planejar/" ><img class="size-large wp-image-4687 alignnone" title="Gestora do Plano SEBRAEPREV fala sobre a importância do Programa PLANEJAR" alt="mqdefault 5 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/07/mqdefault_5.jpg" width="300" /></a></p>
-    <p>Gestora do Plano SEBRAEPREV fala sobre a importância do Programa PLANEJAR</p>
-    </div>
-    <div class="clear"></div>
-    </div>
-    <h5 class="toggle "><a href="#"><span class="arrow"></span>Entrevistas</a></h5><div class="toggle-content " style="">
-    <div class="one_half">
-    <p><a href="http://sebraeprevidencia.com.br/redes-sociais-pedem-administracao-estrategica/" ><img class="alignnone size-full wp-image-4725" title="REDES SOCIAIS PEDEM ADMINISTRAÇÃO ESTRATÉGICA" alt="mqdefault 18 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/07/mqdefault_18.jpg" width="300" /></a></p>
-    <p>Redes Sociais pedem administração estratégica</p>
-    </div>
-    <div class="one_half last">
-    <p><a href="http://sebraeprevidencia.com.br/sebrae-previdencia-instrumentos-de-governanca-implantados/" ><img class="size-large wp-image-4687 alignnone" title="SEBRAE PREVIDÊNCIA: INSTRUMENTOS DE GOVERNANÇA IMPLANTADOS" alt="mqdefault 17 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/07/mqdefault_17.jpg" width="300" /></a></p>
-    <p>SEBRAE PREVIDÊNCIA: intrumentos de Governança implantados</p>
-    </div>
-    <div class="one_half">
-    <p><a href="http://sebraeprevidencia.com.br/sebrae-previdencia-compartilha-experiencia-com-mobilizacao-de-participantes/" ><img class="alignnone size-full wp-image-4725" title="SEBRAE PREVIDÊNCIA COMPARTILHA EXPERIÊNCIA COM MOBILIZAÇÃO DE PARTICIPANTES" alt="mqdefault 16 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/07/mqdefault_16.jpg" width="300" /></a></p>
-    <p>SEBRAE PREVIDÊNCIA compartilha experiência com mobilização de participantes</p>
-    </div>
-    <div class="one_half last">
-    <p><a href="http://sebraeprevidencia.com.br/sebrae-previdencia-festeja-o-relacionamento-com-aposentados/" ><img class="size-large wp-image-4687 alignnone" title="SEBRAE PREVIDÊNCIA FESTEJA O RELACIONAMENTO COM APOSENTADOS" alt="mqdefault 15 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/07/mqdefault_15.jpg" width="300" /></a></p>
-    <p>SEBRAE PREVIDÊNCIA festeja o relacionamento com aposentados</p>
-    </div>
-    <div class="one_half">
-    <p><a href="http://sebraeprevidencia.com.br/qualidade-de-vida-e-uma-conquista/" ><img class="alignnone size-full wp-image-4725" title="QUALIDADE DE VIDA É UMA CONQUISTA" alt="mqdefault 14 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/07/mqdefault_14.jpg" width="300" /></a></p>
-    <p>Qualidade de vida é uma conquista</p>
-    </div>
-    <div class="one_half last">
-    <p><a href="http://sebraeprevidencia.com.br/diretor-presidente-reafirma-o-papel-institucional-na-promocao-da-consistencia-da-governanca-2/" ><img class="size-large wp-image-4687 alignnone" title="DIRETOR-PRESIDENTE REAFIRMA O PAPEL INSTITUCIONAL NA PROMOÇÃO DA CONSISTÊNCIA DA GOVERNANÇA" alt="mqdefault1 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/07/mqdefault1.jpg" width="300" /></a></p>
-    <p>Diretor-Presidente reafirma o papel institucional na promoção da consistência da governança</p>
-    </div>
-    <div class="clear"></div>
-    </div>
-    <h5 class="toggle "><a href="#"><span class="arrow"></span>Especial 10 anos do SEBRAEPREV</a></h5><div class="toggle-content " style="">
-    <div class="one_half">
-    <p><a href="http://sebraeprevidencia.com.br/especial-10-anos-de-sebraprev-edjair-de-sirqueira-alves"  target="_blank"><img class="alignnone size-full wp-image-4740" alt="mqdefault 2 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/07/mqdefault-2.jpg" width="320" height="180" title="Home" /></a></p>
-    <p>Especial 10 anos de SEBRAPREV &#8211; Edjair de Sirqueira Alves</p>
-    </div>
-    <div class="one_half last">
-    <p><a href="http://sebraeprevidencia.com.br/especial-10-anos-de-sebraprev-jose-claudio-dos-santos"  target="_blank"><img class="alignnone size-full wp-image-4742" alt="mqdefault 1 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/07/mqdefault-1.jpg" width="320" height="180" title="Home" /></a></p>
-    <p>Especial 10 anos de SEBRAPREV &#8211; José Claudio dos Santos</p>
-    </div>
-    <div class="one_half">
-    <p><a href="http://sebraeprevidencia.com.br/especial-10-anos-de-sebraprev-luiz-barreto"  target="_blank"><img class="alignnone size-full wp-image-4741" alt="mqdefault Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/07/mqdefault.jpg" width="320" height="180" title="Home" /></a></p>
-    <p>Especial 10 anos de SEBRAPREV &#8211; Luiz Barreto</p>
-    </div>
-    <div class="one_half last">
-    <p><a href="http://sebraeprevidencia.com.br/10-anos-de-sebraeprev-paulo-okamotto/" ><img class="alignnone size-full wp-image-4721" title="10 anos de SEBRAEPREV – Paulo Okamotto" alt="mqdefault 12 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2014/05/mqdefault_12.jpg" width="300" /></a></p>
-    <p>10 anos de SEBRAEPREV – Paulo Okamotto</p>
-    </div>
-    <div class="clear"></div>
-    </div>
-    <h5 class="toggle "><a href="#"><span class="arrow"></span>Especial 5 anos do SEBRAEPREV</a></h5><div class="toggle-content " style="">
-    <a href="http://www.youtube.com/watch?v=xZHAgH3HUTY&amp;list=PLysXn_fiu9Q_SN_2pmomuAwPb2KjI2gLz" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.youtube.com']);" target="_blank"><strong>Clique aqui</strong></a> para ver os depoimentos de diversos gestores do SEBRAE e do próprio SEBRAE PREViDÊNCIA sobre os 5 anos do Instituto SEBRAE de Seguridade Social.</p>
-    </div>
-    </div>
-    </div>
-    <p></div></div></div>
+                
                 </div>
                         </div>
                 </div>

@@ -15,11 +15,11 @@
 	<section class="columns columns-1" style="width:100%">
 		<div class="holder">
 			<?php
-                $args = array( 'posts_per_page' => '10', 'post_type' => 'noticias');
-                $loop = new WP_Query( $args );
-                while ( $loop->have_posts() ) : $loop->the_post();  
-                
-                ?>
+				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+				$args = array('posts_per_page' => 5, 'post_type' => 'noticias' ,'paged' => $paged );
+				query_posts($args);
+				if ( have_posts() ) : while (have_posts()) : the_post();								
+				?>
 			<article class="col bd-bottom">
 				<h2 class="title-certo">
 					<a href="<?php the_permalink();?>">
@@ -28,41 +28,34 @@
 				</h2>
 				<ul class="meta">
 					<li>
-						<em class="date"><?php echo get_the_date(); ?></em>
+						<em class="date"><?php echo get_the_date();?></em>
 					</li>
 				</ul>				
 				<p style="text-align: justify;"><?php the_excerpt();?></p>			
-			</article>
-			<?php endwhile;?>
-
-
-</div></section></div>
-							</div>
+			</article>						
+			<?php endwhile;endif;?>
+			<div >
+				<?php
+				global $wp_query;
+				$big = 999999999;
+				echo paginate_links( array(
+					'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+					'format' => '?paged=%#%',
+					'current' => max( 1, get_query_var('paged') ),
+					'total' => $wp_query->max_num_pages,
+					'prev_text'    => '<div class="btn-prev">Anterior</div>',
+					'next_text'    => '<div class="btn-next">Próximo</div>'
+				));
+				?>
+			</div>
+		</div>
+	</section>
+</div>
+						</div>
 					</div>
 			</div>
-	<div id="sidebar" style="float:right;">		<div id="recent-posts-2" class="widget widget_recent_entries">		<div class="heading"><h3>Outras Notícias</h3></div>		<ul>
-					<li>
-				<a href="http://sebraeprevidencia.com.br/ja-comecou-o-periodo-para-alterar-os-perfis-de-investimentos-e-o-percentual-de-contribuicao/" title="Já começou o período para alterar os perfis de investimentos e o percentual de contribuição">Já começou o período para alterar os perfis de investimentos e o percentual de contribuição</a>
-							<span class="post-date">8 de junho de 2015</span>
-						</li>
-					<li>
-				<a href="http://sebraeprevidencia.com.br/comunicacao-foi-tema-da-x-oficina-de-gestores/" title="Comunicação foi tema da X Oficina de Gestores">Comunicação foi tema da X Oficina de Gestores</a>
-							<span class="post-date">2 de junho de 2015</span>
-						</li>
-					<li>
-				<a href="http://sebraeprevidencia.com.br/iv-forum-fala-de-economia-e-qualidade-de-vida/" title="IV Fórum fala de economia e qualidade de vida">IV Fórum fala de economia e qualidade de vida</a>
-							<span class="post-date">1 de junho de 2015</span>
-						</li>
-					<li>
-				<a href="http://sebraeprevidencia.com.br/periodo-para-alterar-o-perfil-de-investimento-e-o-percentual-de-contribuicao-comeca-em-junho-e-vai-ate-o-dia-31-de-julho/" title="Período para alterar o perfil de investimento e o percentual de contribuição começa em junho e vai até o dia 31 de julho">Período para alterar o perfil de investimento e o percentual de contribuição começa em junho e vai até o dia 31 de julho</a>
-							<span class="post-date">27 de maio de 2015</span>
-						</li>
-					<li>
-				<a href="http://sebraeprevidencia.com.br/comissoes-tematicas-sao-definidas-pelo-conselho-deliberativo/" title="Comissões Temáticas são definidas pelo Conselho Deliberativo">Comissões Temáticas são definidas pelo Conselho Deliberativo</a>
-							<span class="post-date">14 de maio de 2015</span>
-						</li>
-				</ul>
-		</div></div>
+
+	
 		</div>
           
 	</div>
