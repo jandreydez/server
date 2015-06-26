@@ -1,4 +1,11 @@
-<?php get_header('single');?>
-<?php the_title();?>
-<?php the_content();?>
-<?php get_footer();?>
+<?php get_header('single');while (have_posts()) : the_post();?>
+<div class="avada-row">
+	<div class="content">
+		<div class="post-content videos-type">
+			<h2><?php the_title();?></h2>
+			<?php the_content();?>
+		</div>
+	</div>
+</div>
+
+<?php endwhile; get_footer();?>

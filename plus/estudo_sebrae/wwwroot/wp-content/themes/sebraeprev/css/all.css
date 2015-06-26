@@ -3195,3 +3195,4 @@ table{
 	  background-color: rgb(74, 126, 187);
 	  color: #fff !important;
  }
+.videos-type iframe{width: 100% !important;height: 530px !important;}
