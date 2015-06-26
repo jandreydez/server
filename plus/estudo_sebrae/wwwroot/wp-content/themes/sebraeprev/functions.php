@@ -159,5 +159,78 @@ function toolbar_link_to_mypage( $wp_admin_bar ) {
 		add_post_type_support( 'videos', 'thumbnail'  );
 		add_post_type_support( 'videos', 'custom-fields'  );
 	}
+	//
+	add_action( 'restrict_manage_posts', 'my_restrict_manage_posts' );
+function my_restrict_manage_posts() {
+	global $typenow;
+	$taxonomy = $typenow.'_type';
+	if( $typenow != "page" && $typenow != "post" ){
+		$filters = array($taxonomy);
+		foreach ($filters as $tax_slug) {
+			$tax_obj = get_taxonomy($tax_slug);
+			$tax_name = $tax_obj->labels->name;
+			$terms = get_terms($tax_slug);
+			echo "<select name='$tax_slug' id='$tax_slug' class='postform'>";
+			echo "<option value=''>Show All $tax_name</option>";
+			foreach ($terms as $term) { echo '<option value='. $term->slug, $_GET[$tax_slug] == $term->slug ? ' selected="selected"' : '','>' . $term->name .' (' . $term->count .')</option>'; }
+			echo "</select>";
+		}
+	}
+}
+function get_the_category_by_posttype($post_type){?>
+	<div class="accordian">	
+		<?php	 
+		// Get all the taxonomies for this post type
+		$taxonomies = get_object_taxonomies( array( 'post_type' => $post_type ) );	 
+		foreach( $taxonomies as $taxonomy ) :	 
+		    // Gets every "category" (term) in this taxonomy to get the respective posts
+		    $terms = get_terms( $taxonomy);	 
+		    foreach( $terms as $term ) :
+		?>	 		
+				<h5 class="toggle">
+	                <a href="#">
+	                    <span class="arrow"></span>
+	                    <?php echo $term->name;?>
+	                </a>
+        		</h5>
+        		<?php				        	        
+		        $args = array(
+		                'post_type' => $post_type,
+		                'posts_per_page' => -1,  //show all posts
+		                'tax_query' => 
+			                array(
+			                    array(
+			                        'taxonomy' => $taxonomy,
+			                        'field' => 'slug',
+			                        'terms' => $term->slug,
+			                    )
+			                )	 
+		            	);
+		    	?>
 
 
+		        <div class="toggle-content " style="">
+			        <?php
+			        $posts = new WP_Query($args);
+			        if( $posts->have_posts() ): 
+			        	while( $posts->have_posts() ) : $posts->the_post();
+			        ?>
+			        	<div class="one_half">	        		     			
+					        <a href="<?php the_permalink();?>"><?php echo the_post_thumbnail('medium');?></a>
+					        <p><?php echo get_the_title();?></p>	        		
+			            </div>
+			        <?php                 
+		       			endwhile;
+		       		endif;
+		       		?> 
+			    <div style="clear:both"></div>
+			    </div>
+
+
+		<?php
+		    endforeach;
+		endforeach;
+		?>
+	</div>
+<?php 
+}

@@ -419,52 +419,8 @@
     </div>
 
     <div id="tab5" class="tab tab_content">
-        <?php   wp_reset_query();
-                $args = array( 'posts_per_page' => '-1', 'post_type' => 'videos');
-                $loop = new WP_Query( $args );
-
-                while ( $loop->have_posts() ) : $loop->the_post();  
-            ?>
-            <?php $GLOBALS['category'] = get_the_category();?>  
-                
-            <?php print_r( $category); endwhile;
-           
-
-            ?>
-
-        <div class="accordian">
-            <p>&nbsp;</p>
-            <!--Fudeo -->
-            <?php 
-            foreach ($category as $cat) :
-            $catname = $cat->name;
-            
-            ?>
-                    
-            <h5 class="toggle">
-                <a href="#">
-                    <span class="arrow"></span>                    
-                       <?php  echo $catname;?> 
-                </a>
-            </h5>                      
-            <div class="toggle-content " style="">
-            <?php
-                $args = array( 'posts_per_page' => '-1', 'post_type' => 'videos', 'category_name'=>$catname);
-                $loop = new WP_Query( $args );
-                while ( $loop->have_posts() ) : $loop->the_post();  
-            ?>
-                <div class="one_half">
-                    <p>
-                        <a href="http://sebraeprevidencia.com.br/video-institucional-sebrae-previdencia/" >
-                            <img class="size-thumbnail wp-image-4686 alignnone" title="Vídeo Institucional SEBRAE PREVIDENCIA" alt="mqdefault 1 Home" src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/07/mqdefault_1.jpg" width="300" />
-                        </a>
-                    </p>
-                    <p><?php the_title();?></p>
-                </div>                
-            <?php endwhile;?>
-            </div>
-        <?php endforeach;?>
-        </div>
+        <?php get_the_category_by_posttype('videos');?>
+       
     </div>
                 
                 </div>
