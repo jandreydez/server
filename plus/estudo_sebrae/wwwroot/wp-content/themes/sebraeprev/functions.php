@@ -206,10 +206,11 @@ function get_the_category_by_posttype($post_type){?>
 			                    )
 			                )
 		            	);
-		    	?>					 
+		    	?>
 					<h5 class="toggle">
 										<a href="#">
 												<span class="arrow"></span>
+
 												<?php echo $term->name;?>
 
 										</a>
