@@ -6,11 +6,11 @@ class JsonDB {
 
 	protected $filename;
 	protected $json;
-	
+
 	function __construct($filename)
 	{
-		$this->filename = $filename;	
-		$this->json = json_decode(file_get_contents($filename), true);	
+		$this->filename = $filename;
+		$this->json = json_decode(file_get_contents($filename), true);
 	}
 
 	function add($key, $value)
@@ -29,7 +29,7 @@ class JsonDB {
 	}
 }
 
-$db = new JsonDB('db.txt');
+$db = new JsonDB('db.json');
 //$db->add('3', ['name' => 'Allan Ferreira', 'email' => 'allan.less@outlook.com', 'senha' => 'UGgjhg¨hJKLGguopuyY']);
 //$db->save();
 //http://gustavopaes.net/blog/2010/php-como-ler-e-escrever-dados-no-formato-json.html
