@@ -1,14 +1,14 @@
 <?php get_header();?>
 <div id="sliders-container"></div>
-                         
+
 
     <div id="main" class="width-100" style="overflow:hidden !important;padding-left:0px;padding-right:0px;">
             <div class="avada-row" style="max-width:100%;">
-    
+
                 <div id="content" class="full-width">
                     <div id="post-766" class="post-766 page type-page status-publish hentry">
                             <div class="post-content">
-                    <div class="homeslider">                
+                    <div class="homeslider">
                     <!-- START REVOLUTION SLIDER 2.3.91 -->
                     <div id="rev_slider_1_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" style="margin:0px auto;background-color:#E9E9E9;padding:0px;margin-top:0px;margin-bottom:0px;max-height:300px;">
                         <div id="rev_slider_1_1" class="rev_slider fullwidthabanner" style="display:none;max-height:300px;height:300;">
@@ -30,42 +30,42 @@
                             </li>
                             <li data-transition="slidehorizontal" data-slotamount="7" data-masterspeed="300" data-link="https://www.facebook.com/pages/SEBRAE-PREVID%C3%8ANCIA/115329475213405"  data-target="_blank">
                                     <img src="http://sebraeprevidencia.com.br/wp-content/uploads/2013/10/banner-fb1.jpg"  alt="banner fb1 Home" fullwidthcentering="on" title="Home" />
-                                    <div class="tp-caption medium_text fade"  
-                                     data-x="505" 
-                                     data-y="136" 
-                                     data-speed="300" 
-                                     data-start="500" 
+                                    <div class="tp-caption medium_text fade"
+                                     data-x="505"
+                                     data-y="136"
+                                     data-speed="300"
+                                     data-start="500"
                                      data-easing="easeOutExpo">O SEBRAE PREVIDÊNCIA</div>
-                                    <div class="tp-caption medium_text fade"  
-                                     data-x="505" 
-                                     data-y="162" 
-                                     data-speed="300" 
-                                     data-start="800" 
+                                    <div class="tp-caption medium_text fade"
+                                     data-x="505"
+                                     data-y="162"
+                                     data-speed="300"
+                                     data-start="800"
                                      data-easing="easeOutExpo">também está no Facebook</div>
-                                    <div class="tp-caption small_text fade"  
-                                     data-x="643" 
-                                     data-y="184" 
-                                     data-speed="300" 
-                                     data-start="1100" 
+                                    <div class="tp-caption small_text fade"
+                                     data-x="643"
+                                     data-y="184"
+                                     data-speed="300"
+                                     data-start="1100"
                                      data-easing="easeOutExpo">Clique e acesse</div>
                                 </li>
                             </ul>
                         </div>
-                    </div>              
-                                
+                    </div>
+
                 <script type="text/javascript">
 
                     var tpj=jQuery;
-                    
+
                                         tpj.noConflict();
-                                    
+
                     var revapi1;
-                    
+
                     tpj(document).ready(function() {
-                    
+
                     if (tpj.fn.cssOriginal != undefined)
                         tpj.fn.css = tpj.fn.cssOriginal;
-                    
+
                     if(tpj('#rev_slider_1_1').revolution == undefined)
                         revslider_showDoubleJqueryError('#rev_slider_1_1');
                     else
@@ -75,18 +75,18 @@
                             startwidth:960,
                             startheight:300,
                             hideThumbs:0,
-                            
+
                             thumbWidth:100,
                             thumbHeight:50,
                             thumbAmount:4,
-                            
+
                             navigationType:"none",
                             navigationArrows:"solo",
                             navigationStyle:"square-old",
-                            
+
                             touchenabled:"on",
                             onHoverStop:"on",
-                            
+
                             navigationHAlign:"center",
                             navigationVAlign:"bottom",
                             navigationHOffset:0,
@@ -101,7 +101,7 @@
                             soloArrowRightValign:"center",
                             soloArrowRightHOffset:20,
                             soloArrowRightVOffset:0,
-                                    
+
                             shadow:0,
                             fullWidth:"on",
 
@@ -110,22 +110,22 @@
                             stopAtSlide:-1,
 
                             shuffle:"off",
-                            
+
                             hideSliderAtLimit:0,
                             hideCaptionAtLimit:0,
                             hideAllCaptionAtLilmit:0,
-                            startWithSlide:0    
+                            startWithSlide:0
                         });
-                    
+
                     }); //ready
-                    
+
                 </script>
-                
+
                                 <!-- END REVOLUTION SLIDER -->
                     </div>
     <style type='text/css'>
         #tabs-1,#tabs-1.tabs-vertical .tabs,#tabs-1.tabs-vertical .tab_content{border-color:#ebeaea !important;}
-        
+
             #main #tabs-1.tabs-horizontal,#tabs-1.tabs-vertical .tab_content,.pyre_tabs .tabs-container{background-color:#ffffff;}
             /*#main #tabs-1.tabs-horizontal,#tabs-1.tabs-vertical .tab_content,.pyre_tabs .tabs-container{background-color:#ffffff !important;}*/
 
@@ -174,16 +174,16 @@
                 <?php
                 $args = array( 'posts_per_page' => '4', 'post_type' => 'noticias');
                 $loop = new WP_Query( $args );
-                while ( $loop->have_posts() ) : $loop->the_post();  
+                while ( $loop->have_posts() ) : $loop->the_post();
                 $count = 1;
-                ?>  
+                ?>
                 <div class="image_container" id="<?php echo $count;?>">
                     <a href="<?php the_permalink();?>" title="<?php get_the_title();?>" target="_self">
                         <?php the_post_thumbnail('noticia');?>
                         <!-- <img width="500" height="340" src="http://sebraeprevidencia.com.br/wp-content/uploads/2015/05/Comissões_Temáticas_noticias2.jpg" class="attachment-tamanho-noticias-home wp-post-image" alt="Comissões_Temáticas_noticias2" /> -->
                     </a>
                 </div>
-                <?php 
+                <?php
                 $count++;
                 endwhile;
                 ?>
@@ -202,12 +202,12 @@
                 </div>
                 -->
             </div>
-                            
+
             <ul class="nav_noticias">
                 <?php
                 $args = array( 'posts_per_page' => '4', 'post_type' => 'noticias');
                 $loop = new WP_Query( $args );
-                while ( $loop->have_posts() ) : $loop->the_post();  
+                while ( $loop->have_posts() ) : $loop->the_post();
                 $count = 1;
                 ?>
                 <a href="<?php the_permalink();?>">
@@ -216,15 +216,15 @@
                         <p><?php the_title();?></p>
                         <span style="color:#2883af !important">>> Leia Mais</span>
                     </li>
-                </a>  
-                <?php 
+                </a>
+                <?php
                 $count++;
                 endwhile;
                 ?>
                 <h4>
                     <a href="<?php echo home_url();?>/noticias-todas/"> >> Acessar todas as notícias</a>
                 </h4>
-            </ul>            
+            </ul>
             <div style="clear:both;"></div>
         </div>
 
@@ -355,11 +355,11 @@
     <div id="tab3" class="tab tab_content">
         <div class="accordian">
             <p>&nbsp;</p>
-            
+
             <?php
             $args = array( 'posts_per_page' => '-1', 'post_type' => 'formularios');
             $loop = new WP_Query( $args );
-            while ( $loop->have_posts() ) : $loop->the_post();  
+            while ( $loop->have_posts() ) : $loop->the_post();
             ?>
 
             <h5 class="toggle">
@@ -371,64 +371,26 @@
             <div class="toggle-content" style="">
                 <?php the_content();?>
             </div>
-            
+
             <?php endwhile;?>
         </div>
     </div>
     <div id="tab4" class="tab tab_content">
         <p>&nbsp;</p>
-        <div class="accordian">
-            <h5 class="toggle ">
-                <a href="#">
-                    <span class="arrow"></span>
-                    Assembleias e Reuniões dos Conselhos
-                </a>
-            </h5>
-            <div class="toggle-content " style="">
-                ...
-            </div>
-
-            <h5 class="toggle ">
-                <a href="#">
-                    <span class="arrow"></span>
-                    Eventos nas Patrocinadoras
-                </a>
-            </h5>
-            <div class="toggle-content " style="">
-                ...
-            </div>
-            <h5 class="toggle ">
-                <a href="#">
-                    <span class="arrow"></span>
-                    Cursos e Oficinas
-                </a>
-            </h5>
-            <div class="toggle-content " style="">
-                ...
-            </div>
-            <h5 class="toggle ">
-                <a href="#">
-                    <span class="arrow"></span>
-                    Outros Eventos
-                </a>
-            </h5>
-            <div class="toggle-content " style="">
-                ...
-            </div>
-        </div>
+          <?php get_the_category_by_posttype('fotos');?>
     </div>
 
     <div id="tab5" class="tab tab_content">
         <?php get_the_category_by_posttype('videos');?>
-       
+
     </div>
-                
+
                 </div>
                         </div>
                 </div>
 
         </div>
-          
+
     </div>
 
 <?php get_footer();?>

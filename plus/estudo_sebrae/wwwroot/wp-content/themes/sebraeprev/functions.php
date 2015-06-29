@@ -1,7 +1,7 @@
 <?php
 // Configuro novo tamanho de imagem ( classes );
-	if ( function_exists( 'add_image_size' ) ) { 
-		add_image_size( 'noticia', 500, 340, true ); 
+	if ( function_exists( 'add_image_size' ) ) {
+		add_image_size( 'noticia', 500, 340, true );
 	}
 
 // Echo slug page
@@ -35,7 +35,7 @@
 	add_filter('post_thumbnail_html', 'the_post_thumbnail_remove_class');
 
 // Enable Post Thumbnail
-	add_theme_support( 'post-thumbnails' ); 
+	add_theme_support( 'post-thumbnails' );
 
 
 // Desativa as Widgets padrão do wordpress
@@ -53,7 +53,7 @@
 	    unregister_widget('WP_Widget_RSS');
 	    unregister_widget('WP_Widget_Tag_Cloud');
 	}
-	add_action('widgets_init', 'unregister_default_wp_widgets', 1);	
+	add_action('widgets_init', 'unregister_default_wp_widgets', 1);
 
 // Remove Wordpress Junk
 	remove_action('wp_head', 'rsd_link'); // Removes the Really Simple Discovery link
@@ -71,13 +71,13 @@
 	}
 // Login style
 	function login_page_styles() {
-	    wp_enqueue_style( 'login-page-styles', get_template_directory_uri() . '/css/login.css' ); 
+	    wp_enqueue_style( 'login-page-styles', get_template_directory_uri() . '/css/login.css' );
 	}
 	add_action( 'login_enqueue_scripts', 'login_page_styles' );
 
 // Admin style
 	function main_dashbord() {
-	    wp_enqueue_style( 'main_dashbord', get_template_directory_uri() . '/css/dashboard.css' ); 
+	    wp_enqueue_style( 'main_dashbord', get_template_directory_uri() . '/css/dashboard.css' );
 	}
 	add_action('admin_head', 'main_dashbord');
 
@@ -95,6 +95,8 @@ function toolbar_link_to_mypage( $wp_admin_bar ) {
 }
 
 
+
+
 // Adiciona tipos de Posts
 	add_action( 'init', 'create_post_type' );
 	function create_post_type() {
@@ -107,7 +109,7 @@ function toolbar_link_to_mypage( $wp_admin_bar ) {
 				),
 			'public' => true,
 			'has_archive' => true,
-			'taxonomies' => array('category', 'post_tag') 
+			'taxonomies' => array('category', 'post_tag')
 			)
 		);
 		//formulários
@@ -119,7 +121,7 @@ function toolbar_link_to_mypage( $wp_admin_bar ) {
 				),
 			'public' => true,
 			'has_archive' => true,
-			'taxonomies' => array('category', 'post_tag') 
+			'taxonomies' => array('category', 'post_tag')
 			)
 		);
 		//fotos
@@ -131,7 +133,7 @@ function toolbar_link_to_mypage( $wp_admin_bar ) {
 				),
 			'public' => true,
 			'has_archive' => true,
-			'taxonomies' => array('category', 'post_tag') 
+			'taxonomies' => array('category', 'post_tag')
 			)
 		);
 		register_post_type( 'videos',
@@ -142,7 +144,7 @@ function toolbar_link_to_mypage( $wp_admin_bar ) {
 				),
 			'public' => true,
 			'has_archive' => true,
-			'taxonomies' => array('category', 'post_tag') 
+			'taxonomies' => array('category', 'post_tag')
 			)
 		);
 	}
@@ -178,51 +180,57 @@ function my_restrict_manage_posts() {
 	}
 }
 function get_the_category_by_posttype($post_type){?>
-	<div class="accordian">	
-		<?php	 
+	<div class="accordian">
+		<?php
 		// Get all the taxonomies for this post type
-		$taxonomies = get_object_taxonomies( array( 'post_type' => $post_type ) );	 
-		foreach( $taxonomies as $taxonomy ) :	 
+		$taxonomies = get_object_taxonomies( array( 'post_type' => $post_type ) );
+		foreach( $taxonomies as $taxonomy ) :
 		    // Gets every "category" (term) in this taxonomy to get the respective posts
-		    $terms = get_terms( $taxonomy);	 
+		    $terms = get_terms( $taxonomy);
 		    foreach( $terms as $term ) :
-		?>	 		
-				<h5 class="toggle">
-	                <a href="#">
-	                    <span class="arrow"></span>
-	                    <?php echo $term->name;?>
+		?>
+
+
 	                </a>
         		</h5>
-        		<?php				        	        
+        		<?php
 		        $args = array(
 		                'post_type' => $post_type,
 		                'posts_per_page' => -1,  //show all posts
-		                'tax_query' => 
+		                'tax_query' =>
 			                array(
 			                    array(
 			                        'taxonomy' => $taxonomy,
 			                        'field' => 'slug',
 			                        'terms' => $term->slug,
 			                    )
-			                )	 
+			                )
 		            	);
-		    	?>
+		    	?>					 
+					<h5 class="toggle">
+										<a href="#">
+												<span class="arrow"></span>
+												<?php echo $term->name;?>
+
+										</a>
+							</h5>
 
 
-		        <div class="toggle-content " style="">
+
+		        <div class="toggle-content" >
 			        <?php
 			        $posts = new WP_Query($args);
-			        if( $posts->have_posts() ): 
+			        if( $posts->have_posts() ):
 			        	while( $posts->have_posts() ) : $posts->the_post();
 			        ?>
-			        	<div class="one_half">	        		     			
+			        	<div class="one_half">
 					        <a href="<?php the_permalink();?>"><?php echo the_post_thumbnail('medium');?></a>
-					        <p><?php echo get_the_title();?></p>	        		
+					        <p><?php echo get_the_title();?></p>
 			            </div>
-			        <?php                 
+			        <?php
 		       			endwhile;
 		       		endif;
-		       		?> 
+		       		?>
 			    <div style="clear:both"></div>
 			    </div>
 
@@ -232,5 +240,5 @@ function get_the_category_by_posttype($post_type){?>
 		endforeach;
 		?>
 	</div>
-<?php 
+<?php
 }
