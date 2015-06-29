@@ -3196,3 +3196,7 @@ table{
 	  color: #fff !important;
  }
 .videos-type iframe{width: 100% !important;height: 530px !important;}
+.fotos-type img{
+    width: 31%;
+      padding: 1%;
+}

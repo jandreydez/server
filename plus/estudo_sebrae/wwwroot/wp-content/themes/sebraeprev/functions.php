@@ -182,61 +182,42 @@ function my_restrict_manage_posts() {
 function get_the_category_by_posttype($post_type){?>
 	<div class="accordian">
 		<?php
-		// Get all the taxonomies for this post type
 		$taxonomies = get_object_taxonomies( array( 'post_type' => $post_type ) );
 		foreach( $taxonomies as $taxonomy ) :
-		    // Gets every "category" (term) in this taxonomy to get the respective posts
 		    $terms = get_terms( $taxonomy);
 		    foreach( $terms as $term ) :
+				$cat = $term->name;
+				$cat = explode('_',$cat);				
+				if( $cat[0] == $post_type and $cat[1] != NULL):
 		?>
 
-
-	                </a>
-        		</h5>
-        		<?php
-		        $args = array(
-		                'post_type' => $post_type,
-		                'posts_per_page' => -1,  //show all posts
-		                'tax_query' =>
-			                array(
-			                    array(
-			                        'taxonomy' => $taxonomy,
-			                        'field' => 'slug',
-			                        'terms' => $term->slug,
-			                    )
-			                )
-		            	);
-		    	?>
 					<h5 class="toggle">
-										<a href="#">
-												<span class="arrow"></span>
-
-												<?php echo $term->name;?>
-
-										</a>
-							</h5>
-
-
-
-		        <div class="toggle-content" >
-			        <?php
-			        $posts = new WP_Query($args);
-			        if( $posts->have_posts() ):
-			        	while( $posts->have_posts() ) : $posts->the_post();
-			        ?>
-			        	<div class="one_half">
-					        <a href="<?php the_permalink();?>"><?php echo the_post_thumbnail('medium');?></a>
-					        <p><?php echo get_the_title();?></p>
-			            </div>
-			        <?php
-		       			endwhile;
-		       		endif;
-		       		?>
-			    <div style="clear:both"></div>
-			    </div>
-
-
+						<a href="#">
+							<span class="arrow"></span>
+							<?php echo $cat[1];?>
+						</a>
+					</h5>
+			        <div class="toggle-content" >
+				        <?php
+	        			$args = array('post_type' => $post_type,'posts_per_page' => -1, 'tax_query' =>  array( array('taxonomy' => $taxonomy,'field' => 'slug','terms' => array($term->slug),)));
+				        $posts = new WP_Query($args);
+				        if( $posts->have_posts() ):
+				        	while( $posts->have_posts() ) : $posts->the_post();
+				        ?>
+					        	<div class="one_half">
+							        <a href="<?php the_permalink();?>"><?php echo the_post_thumbnail('medium');?></a>
+							        <p>
+							        	<a href="<?php the_permalink();?>"><?php echo get_the_title();?></a>
+							        </p>
+					            </div>
+				        <?php
+			       			endwhile;
+			       		endif;
+			       		?>
+				    	<div style="clear:both"></div>
+				    </div>
 		<?php
+		    	endif;
 		    endforeach;
 		endforeach;
 		?>
