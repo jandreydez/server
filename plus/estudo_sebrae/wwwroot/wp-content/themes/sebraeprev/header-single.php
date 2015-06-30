@@ -5,8 +5,10 @@
 
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
-
+<!--------------------------------------Owl Carousel------------------------------------------------>
+<script src="<?php bloginfo('template_url');?>/vendor/owlcarousel/owl.carousel.min.js"></script>
+<link rel="stylesheet" href="<?php bloginfo('template_url');?>/vendor/owlcarousel/owl.carousel.css">
+<!-------------------------------------------------------------------------------------------------->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
