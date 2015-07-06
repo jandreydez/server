@@ -19,14 +19,14 @@
       <div class="row">
         <div class="col-md-12">
           <ul class="menu">
-            <li><img src="assets/images/logo.png" alt=""></li>
+            <li><a href="#"><img src="assets/images/logo.png" alt=""></a></li>
             <li><a href="#">SOBRE NÓS</a></li>
             <li><a href="#">PLANOS</a></li>
             <li><a href="#">RESULTADOS</a></li>
             <li><a href="#">EDUCAPREV</a></li>
             <li><a href="#">NOTÍCIAS</a></li>
             <li><a href="#">CONTATO</a></li>
-            <li><a href="#"><img src="assets/images/lock.png" alt="">HomePrev</a></li>
+            <li><a href="#"><img src="assets/images/lock.png" alt=""><br/>HomePrev</a></li>
           </ul>
         </div>
       </div>
@@ -179,6 +179,7 @@
                     <li><span class="loc"></span>Av. Presidente Wilson,165 Sala 712 - Centro Rio de Janeiro
                     </li>
                   </ul>
+                  <a href="#"><span class="contato"><h2>Fale Conosco</h2></span></a>
 
                 </div>
               </div>

@@ -1,16 +1,21 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald);
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
 @import url(http://fonts.googleapis.com/css?family=PT+Sans);
-
+///Menu Header//
 .menu{text-align: right;margin-bottom:0px;
-	li{display: inline-block;padding: 25px 0;		
-		&:first-child{float: left;
+	li{display: inline-block;  margin-top: 14px;
+		a{padding:0 15px;display: block;}		
+		&:first-child{float: left;margin-top: 10px;
 			img{height: 25px;}
 		}
-		&:last-child{background-color:@cbluelight;}
-		a{color:@cgray;text-decoration: none;margin:0 15px;}
+		&:last-child{background-color:@cbluelight;float: right;margin:0;text-align: center;
+			a{color:@cwhite;}
+			img{margin-bottom: 10px;}
+		}
+		a{color:@cgray;text-decoration: none;margin:0 15px;padding:15px 0;}
 	}
 }
+//Home//
 .banner{background:url("../images/home.jpg") no-repeat;height: 400px;width: 100%;background-position: 100%;background-size: cover;}
 .bar{background-color: @cbluelight;width: 100%;
 	ul{text-align: center;padding: 40px;
@@ -47,6 +52,13 @@
 		p{margin-top:16px;margin-bottom: 0;}		
 	}
 }
+//Sobre Nós//
+
+
+
+
+
+///Rodapé//
 .footer{.ft-droid(@cwhite);background-color: @cbluelight;padding:30px;
 	h2{text-align: center;margin-bottom:30px;.ft-oswald(@cwhite)}
 	p{text-align: justify;}
@@ -56,6 +68,13 @@
 	.tel{display:block;float:left;margin-right:10px;background: url("../images/iconsfooter.png") no-repeat -1px 0;width: 16px;height: 16px;}
 	.msg{display:block;float:left;margin-right:10px;margin-top: 6px;background: url('../images/iconsfooter.png') no-repeat 0 -36px;width: 17px;height: 11px;}
 	.loc{display:block;float:left;margin-right:10px;background: url('../images/iconsfooter.png') no-repeat -2px -67px;width: 14px;height: 60px;}
+	.contato{display:block;width: 100px;border: 2px solid white;border-radius: 5px;margin: 0 auto;padding: 10px;
+		h2{font-size: 15px;margin:0;}
+		&:hover{background-color: @cwhite;
+			h2{color:@cbluelight;}
+			
+		}
+	}
 }
 .energisa{background-color:@cblue;padding:30px;text-align: center}
 ////Extras////
@@ -66,6 +85,7 @@ a{text-decoration:none !important;}
 @cwhite:#fff;
 @cbluelight:#42c4dd;
 @cblue:#006275;
+@csalmon:#ff7070;
 //fonts
 .ft-oswald(@value){font-family: 'Oswald', sans-serif;color:@value;}
 .ft-pt(@value){font-family: 'PT Sans', sans-serif;color:@value;}
